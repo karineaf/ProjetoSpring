@@ -1,0 +1,8 @@
+postman----
+post
+url tal tal
+{
+        "id": 3,
+        "nome": "Demetria Devonne Lovato",
+        "endereco": "Hospital Paramed, Novo México"
+    }

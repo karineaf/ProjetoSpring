@@ -1,0 +1,50 @@
+start. spring => add web jpa, mysql
+intellij =>  new => project from existing sources
+
+application.properties=>
+spring.datasource.url=jdbc:mysql://localhost:3306/gfood?useSSL=false&useTimezone=true&serverTimezone=America/Sao_Paulo
+spring.datasource.username=root
+# spring.datasource.password=
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+
+mysql => cria o database e as tabelas
+
+CRIAR CONTROLLER
+org.generation.brazil.gfood> new package cliente, javaclass ClienteController:
+ 	import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class ClienteController {}
+
+
+METODO PARA TRAZER A LISTA
+private ClienteRepository repository;
+    public List<Cliente> findAll(){
+        return null;
+    }
+
+CLASS CLIENTE REPOSITORY------------------------------------------- 
+package org.generation.brazil.gfood.cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+}
+
+
+CLASS CLIENTE --------------------------------------------------------
+package org.generation.brazil.gfood.cliente;
+import javax.persistence.Entity;
+
+@Entity //entidade(tabela)
+public class Cliente {
+     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO) // p/ que faça o auto incremento
+    private Long id;
+
+    @NotNull
+    private String nome;
+    private String endereco;
+
+}
+* c/ gets e sets
